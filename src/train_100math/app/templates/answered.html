@@ -1,0 +1,25 @@
+{% extends "./base.html" %}
+
+{% block content %}
+{% comment %} 100math計算 {% endcomment %}
+<div class="container mt-5">
+  <div class="card text-white bg-info">
+    <div class="card-header">
+      結果発表
+    </div>
+    <div class="card-body">
+        <table class="table">
+          <tr>
+            <td>問題数</td><td>{{ total }}問</td>
+          </tr>
+          <tr>
+            <td>正解数</td><td>{{success}}問</td>
+          </tr>
+          <tr>
+            <td>正解率</td><td>{{ rate }}</td>
+          </tr>
+        </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

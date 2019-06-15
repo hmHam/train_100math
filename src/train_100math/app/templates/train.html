@@ -1,0 +1,41 @@
+{% extends "./base.html" %}
+{% load widget_tweaks %}
+{% load operations %}
+
+{% block content %}
+{% comment %} 100math計算 {% endcomment %}
+<div class='container mt-5'>
+  <div class='card bg-dark text-white'>
+    <div class='card-header text-center'>
+      <h4 class='d-inline align-middle'>計算問題</h4>
+    </div>
+    <form action="{% url 'train_100math' %}" method='POST'>
+    <div class='card-body bg-light text-dark'>
+          {% csrf_token %}
+          <table class="table table-bordered">
+          {% for fs in form %}
+              <tr>
+                  {% for f in fs%}
+                      <td>
+                          <label class='label-control' for="{{ f.id_for_label }}">
+                            {{ f.label|replace_op}}
+                          </label>
+                      </td>
+                      <td>
+                          {{ f|add_class:'answer' }}
+                      </td>
+                  {% endfor %}
+              </tr>
+          {% endfor %}
+          </table>
+    </div>
+    <div class='card-footer'>
+      <div class="form-group row">
+        <div class="col-sm text-center">
+          <button type="submit" class="btn btn-primary">解答</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
