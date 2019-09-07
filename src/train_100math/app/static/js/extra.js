@@ -7,7 +7,7 @@ $(function () {
         return Math.floor(Math.random() * (max + 1 - min)) + min;
     }
     var check_answer = function (answer, input) {
-        if (input === '') return false;
+        if (input === '') return false
         return +input === answer;
     };
     $('#start_nback').click(function () {
